@@ -17,91 +17,625 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav x-data="{ Navopen: false }" class="lg:px-12 fixed top-0 flex w-full">
-        <div class="container px-8 py-3 rounded-full mx-auto">
-            <div class="flex items-center justify-between">
-                <img src="../public/icon/Logo.svg" alt="">
-                <img @click="Navopen = ! Navopen" src="../public/icon/toggle.svg" alt="" class="lg:hidden">
-                <div class="hidden lg:block">
-                    <ul class="flex gap-14">
-                        <li class="font-bold text-abu text-md text-blue-600"><a href="#hero-section">Home</a></li>
-                        <li class="font-bold text-abu text-md"><a href="https://busanid.dev" target="_blank">About Us</a></li>
-                        <li class="font-bold text-abu text-md"><a href="#service-section">Services</a></li>
-                        <li class="font-bold text-abu text-md"><a href="#feature-section">Features</a></li>
-                        <li class="font-bold text-abu text-md"><a href="#pricing-section">Pricing</a></li>
-                        <li class="font-bold text-abu text-md"><a href="#contact-section">Contact</a></li>
-                    </ul>
+    <div x-data="{ showBar: false }">
+        <nav x-data="{ Navopen: false }" class="lg:px-12 fixed top-0 flex w-full z-50" :class="{ 'bg-white shadow transition duration-100' : showBar }"
+        @scroll.window="showBar = (window.pageYOffset > 20) ? true : false">
+            <div class="container px-8 py-3 rounded-full mx-auto" >
+                <div class="flex items-center justify-between">
+                    <img src="../public/icon/Logo.svg" alt="">
+                    <img @click="Navopen = ! Navopen" src="../public/icon/toggle.svg" alt="" class="lg:hidden">
+                    <div class="hidden lg:block">
+                        <ul class="flex gap-14">
+                            <li class="font-bold text-abu text-md text-blue-600"><a href="#hero-section">Home</a></li>
+                            <li class="font-bold text-abu text-md"><a href="https://busanid.dev" target="_blank">About Us</a></li>
+                            <li class="font-bold text-abu text-md"><a href="#service-section">Services</a></li>
+                            <li class="font-bold text-abu text-md"><a href="#feature-section">Features</a></li>
+                            <li class="font-bold text-abu text-md"><a href="#pricing-section">Pricing</a></li>
+                            <li class="font-bold text-abu text-md"><a href="#contact-section">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div x-show="Navopen" class="lg:hidden sm:block fixed bottom-0 right-0 left-0 bg-white p-4"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-90"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-90"
-        >
-            <ul class="flex justify-between">
-                <li>
-                    <a href="https://busanid.dev" target="_blank" class="flex justify-center flex-col items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-                          </svg>                            
-                        <span class="text-base font-normal text-abu">About Us</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#hero-section" class="flex justify-center flex-col items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
-                          </svg>                           
-                        <span class="text-base font-normal text-abu">Service</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#service-sertion" class="flex justify-center flex-col items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                          </svg>                            
-                        <span class="text-base font-normal text-abu">Features</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#harga" class="flex justify-center flex-col items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-                          </svg>                            
-                        <span class="text-base font-normal text-abu">Pricing</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#contac" class="flex justify-center flex-col items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                          </svg>                            
-                        <span class="text-base font-normal text-abu">Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <div x-show="Navopen" class="lg:hidden sm:block fixed bottom-0 right-0 left-0 bg-white p-4"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90"
+            >
+                <ul class="flex justify-between">
+                    <li>
+                        <a href="https://busanid.dev" target="_blank" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                              </svg>                            
+                            <span class="text-base font-normal text-abu">About Us</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#hero-section" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                              </svg>                           
+                            <span class="text-base font-normal text-abu">Service</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#service-sertion" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+                              </svg>                            
+                            <span class="text-base font-normal text-abu">Features</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#harga" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                              </svg>                            
+                            <span class="text-base font-normal text-abu">Pricing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contac" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                              </svg>                            
+                            <span class="text-base font-normal text-abu">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero-section">
-        <div class="w-full lg:h-screen lg:pt-0 pt-20 py-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mx-auto place-content-center items-center lg:h-screen max-w-7xl">
-                <div class="lg:pt-24 lg:py-8 order-2 lg:order-1">
-                    <h1 class="lg:text-[64px] text-4xl font-extrabold leading-tight">Elevate Your Software Delivery with DevOps Excellence</h1>
-                    <p class="lg:text-lg text-sm tracking-wide leading-relaxed opacity-80 w-3/4">Unlock the power of DevOps to enhance collaboration, automate processes, and accelerate software delivery.</p>
+        <div class="w-full lg:h-screen lg:pt-0 pt-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 place-content-center items-center lg:h-screen">
+                <div class="lg:pt-12 lg:pl-24 order-2 px-2 lg:px-6 lg:order-1">
+                    <h1 class="lg:text-[48px] text-4xl font-extrabold leading-tight">Lorem ipsum dolor sit amet consectetur.</h1>
+                    <p class="lg:text-lg text-sm tracking-wide leading-relaxed opacity-80 w-3/4">Lorem ipsum dolor sit amet consectetur.</p>
+                    <div class="flex justify-start gap-4 py-4">
+                        <a href="#">
+                            <button class="py-2 px-2 bg-blue-700 shadow-md rounded-md text-white">
+                                Order Now
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button class="py-2 px-2 bg-white shadow-md rounded-md text-blue-700">
+                                Explore More
+                            </button>
+                        </a>
+                    </div>
                 </div>
                 <div class="order-1 lg:order-2">
-                    <img src="../public/img/main.png" alt="">
+                    <img class="mr-0" src="../public/img/main.png" alt="">
                     <img class="fixed top-0 right-0 h-screen -z-10" src="../public/img/rectangle.png" alt="">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Featurs Section -->
+    <section class="bg-slate-50 lg:py-20 py-6" id="feature-section">
+        <div class="container mx-auto max-w-7xl px-6 lg:px-8">
+           <div class="flex flex-col py-6 items-center">
+                <h4 class="text-tosca text-lg py-4"> 
+                    FEATURES
+                </h4>
+                <h2 class="lg:text-[38px] text-xl font-extrabold lg:w-3/4 text-center leading-tight">
+                    Lorem ipsum dolor sit amet consectetur. A cursus vitae aenean eget amet ultrices egestas nunc.
+                </h2>
+           </div>
+           <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center lg:pt-10">
+                <div class="flex flex-col gap-2 lg:gap-4 order-2 lg:order-1">
+                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-10">
+                        <img class="content-start" src="../public/icon/Online Shop.svg" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="text-lg font-bold">
+                                Online shop
+                            </h2>
+                            <p class="text-sm opacity-90">
+                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-5">
+                        <img class="content-start" src="../public/icon/Company.svg" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="text-lg font-bold">
+                                Company profile
+                            </h2>
+                            <p class="text-sm opacity-90">
+                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-10">
+                        <img class="content-start" src="../public/icon/News.svg" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="text-lg font-bold">
+                                Online news
+                            </h2>
+                            <p class="text-sm opacity-90">
+                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img src="../public/img/features.png" alt="">
+                </div>
+                <div class="flex flex-col gap-2 lg:gap-4 order-3 lg:order-3">
+                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-10">
+                        <img class="content-start" src="../public/icon/Page.svg" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="text-lg font-bold">
+                                Landing page
+                            </h2>
+                            <p class="text-sm opacity-90">
+                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-5">
+                        <img class="content-start" src="../public/icon/User.svg" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="text-lg font-bold">
+                                Personal website
+                            </h2>
+                            <p class="text-sm opacity-90">
+                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-10">
+                        <img class="content-start" src="../public/icon/School Building.svg" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="text-lg font-bold">
+                                Organizational or institutions
+                            </h2>
+                            <p class="text-sm opacity-90">
+                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US? Section -->
+    <section class="bg-blue-600 lg:py-20 py-6" id="#">
+        <div class="container mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+                <div>
+                    <img src="../public/img/player.png" alt="">
+                </div>
+                <div class="flex flex-col py-6">
+                    <div class="text-white">
+                        <h4 class="text-tosca text-lg py-4"> 
+                           WHY CHOOSE US?
+                        </h4>
+                        <h2 class="lg:text-[31px] text-xl font-bold text-start leading-tight">
+                           Lorem ipsum dolor sit amet consectetur. A cursus vitae aenean eget amet.
+                        </h2>
+                    </div>
+                     <div class="grid grid-cols-1 lg:grid-cols-2 py-4 gap-2 lg:gap-5 order-2 lg:order-1">
+                        <div class="flex flex-col py-4 px-4 gap-4 bg-white rounded-lg shadow-md">
+                            <div class="">
+                                <img class="content-start h-20 w-20 py-2 px-2 bg-blue-200 rounded-lg" src="../public/icon/Responsive.svg" alt="">
+                            </div>
+                            <div class="flex flex-col">
+                                <h2 class="text-lg font-bold">
+                                    Responsive design
+                                </h2>
+                                <p class="text-sm opacity-90">
+                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col py-4 px-4 gap-4 bg-white rounded-lg shadow-md">
+                            <div class="">
+                                <img class="content-start h-20 w-20 py-2 px-2 bg-blue-200 rounded-lg" src="../public/icon/Idea.svg" alt="">
+                            </div>
+                            <div class="flex flex-col">
+                                <h2 class="text-lg font-bold">
+                                    Creative and professional design
+                                </h2>
+                                <p class="text-sm opacity-90">
+                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col py-4 px-4 gap-4 bg-white rounded-lg shadow-md">
+                            <div class="">
+                                <img class="content-start h-20 w-20 py-2 px-2 bg-blue-200 rounded-lg" src="../public/icon/Security Shield Green.svg" alt="">
+                            </div>
+                            <div class="flex flex-col">
+                                <h2 class="text-lg font-bold">
+                                    High security
+                                </h2>
+                                <p class="text-sm opacity-90">
+                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col py-4 px-4 gap-4 bg-white rounded-lg shadow-md">
+                            <div class="">
+                                <img class="content-start h-20 w-20 py-2 px-2 bg-blue-200 rounded-lg" src="../public/icoN/Easy.svg" alt="">
+                            </div>
+                            <div class="flex flex-col">
+                                <h2 class="text-lg font-bold">
+                                    Easy Content Management
+                                </h2>
+                                <p class="text-sm opacity-90">
+                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
+    <!-- price Section -->
+    <section class="bg-slate-50 lg:py-14 py-6" id="pricing-section">
+        <div class="container mx-auto max-w-7xl px-6 lg:px-8">
+           <div class="flex flex-col py-6 items-center">
+                <h4 class="text-tosca text-xl py-4"> 
+                    PRICING
+                </h4>
+                <h2 class="lg:text-31px] text-xl font-bold text-center leading-tight">
+                    Lorem ipsum dolor sit amet consectetur. A cursus vitae aenean eget amet ultrices egestas nunc.
+                </h2>
+           </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center lg:pt-10">
+                <div class="flex flex-col border-2 rounded-3xl py-6 px-4 h-11/12 items-center">
+                    <div>
+                        <h2 class="text-center font-semibold text-2xl">Starter</h2>
+                        <h4 class="text-center font-normal text-base">Lorem ipsum dolor sit amet consectetur.</h4>
+                    </div>
+                    <div class="py-4">
+                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span class="text-xl font-normal">Rp</span>500.000</h1>
+                    </div>
+                    <div class="py-4">
+                        <a href="">
+                            <button class="py-2 px-8 bg-blue-700 hover:bg-blue-500 hover:text-gray-600 rounded-md text-white">Order now</button>
+                        </a>
+                    </div>
+                    <div>
+                        <h2 class="text-start font-semibold text-lg">Features</h2>
+                        <ul class="flex flex-col space-y-2 py-4">
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M10 14.5L12 12.5M12 12.5L14 10.5M12 12.5L10 10.5M12 12.5L14 14.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#F04438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span class="text-red-600">
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex-col border-2 border-violet-600 rounded-3xl py-6 h-12/12 px-4 items-center relative">
+                    <img class="absolute right-3 top-0" src="../public/img/Label.png" alt="">
+                    <div>
+                        <h2 class="text-center font-semibold text-2xl">Premium</h2>
+                        <h4 class="text-center font-normal text-base">Lorem ipsum dolor sit amet consectetur.</h4>
+                    </div>
+                    <div class="py-4">
+                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span class="text-xl font-normal">Rp</span>500.000</h1>
+                    </div>
+                    <div class="py-4">
+                        <a href="">
+                            <button class="py-2 px-8 bg-blue-700 hover:bg-blue-500 hover:text-gray-600 rounded-md text-white">Order now</button>
+                        </a>
+                    </div>
+                    <div>
+                        <h2 class="text-start font-semibold text-lg">Features</h2>
+                        <ul class="flex flex-col space-y-2 py-4">
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col border-2 rounded-3xl py-6 px-4 h-11/12 items-center">
+                    <div>
+                        <h2 class="text-center font-semibold text-2xl">Business</h2>
+                        <h4 class="text-center font-normal text-base">Lorem ipsum dolor sit amet consectetur.</h4>
+                    </div>
+                    <div class="py-4">
+                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span class="text-xl font-normal">Rp</span>500.000</h1>
+                    </div>
+                    <div class="py-4">
+                        <a href="">
+                            <button class="py-2 px-8 bg-blue-700 hover:bg-blue-500 hover:text-gray-600 rounded-md text-white">Order now</button>
+                        </a>
+                    </div>
+                    <div>
+                        <h2 class="text-start font-semibold text-lg">Features</h2>
+                        <ul class="flex flex-col space-y-2 py-4">
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                            <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                  <span>
+                                    Lorem ipsum dolor sit amet 
+                                  </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- FAQ Section -->
+     <section class="bg-slate-100 lg:py-14 py-6" id="#faq">
+        <div class="container mx-auto max-w-7xl px-6 lg:px-8">
+           <div class="flex flex-col py-6 items-center">
+                <h4 class="text-tosca text-xl py-4"> 
+                    FAQ
+                </h4>
+                <h2 class="lg:text-31px] text-xl font-bold text-center leading-tight">
+                    Get the Information You Need
+                </h2>
+           </div>
+           <div class="flex justify-center">
+            <div class="bg-white max-w-6xl mx-auto border border-gray-200 rounded-lg" x-data="{selected:1}">
+                <ul class="shadow-box">            
+                  <li class="relative border-b border-gray-200">
+                      <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 1 ? selected = 1 : selected = null">
+                          <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold">
+                                How can I order website?
+                            </span>
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29999 15.9999C5.29999 15.1162 6.01633 14.3999 6.89999 14.3999L26.1 14.3999C26.9836 14.3999 27.7 15.1162 27.7 15.9999C27.7 16.8836 26.9836 17.5999 26.1 17.5999L6.89999 17.5999C6.01633 17.5999 5.29999 16.8836 5.29999 15.9999Z" fill="#404040"/>
+                                  </svg>
+                              </span>
+                          </div>
+                        </button>
+                      <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                          <div class="p-6">
+                              <p>Lorem ipsum dolor sit amet consectetur. A neque curabitur fermentum phasellus ante adipiscing.</p>
+                          </div>
+                        </div>
+                  </li>
+                  <li class="relative border-b border-gray-200">
+                      <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 2 ? selected = 2 : selected = null">
+                          <div class="flex items-center justify-between">
+                              <span class="text-lg font-bold">
+                                Can I order more one subscription?
+                            </span>
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 4.80005C17.3836 4.80005 18.1 5.51639 18.1 6.40005V14.4H26.1C26.9836 14.4 27.7 15.1164 27.7 16C27.7 16.8837 26.9836 17.6 26.1 17.6H18.1V25.6C18.1 26.4837 17.3836 27.2001 16.5 27.2001C15.6163 27.2001 14.9 26.4837 14.9 25.6V17.6H6.89999C6.01633 17.6 5.29999 16.8837 5.29999 16C5.29999 15.1164 6.01633 14.4 6.89999 14.4H14.9V6.40005C14.9 5.51639 15.6163 4.80005 16.5 4.80005Z" fill="#404040"/>
+                                  </svg>
+                              </span>
+                          </div>
+                        </button>
+                      <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container2" x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+                          <div class="p-6">
+                              <p>Lorem ipsum dolor sit amet consectetur. A neque curabitur fermentum phasellus ante adipiscing.</p>
+                          </div>
+                      </div>
+                </li>
+                <li class="relative border-b border-gray-200">
+                    <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 3 ? selected = 3 : selected = null">
+                        <div class="flex items-center justify-between">
+                          <span class="text-lg font-bold">
+                            What payment method that I can use?
+                          </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 4.80005C17.3836 4.80005 18.1 5.51639 18.1 6.40005V14.4H26.1C26.9836 14.4 27.7 15.1164 27.7 16C27.7 16.8837 26.9836 17.6 26.1 17.6H18.1V25.6C18.1 26.4837 17.3836 27.2001 16.5 27.2001C15.6163 27.2001 14.9 26.4837 14.9 25.6V17.6H6.89999C6.01633 17.6 5.29999 16.8837 5.29999 16C5.29999 15.1164 6.01633 14.4 6.89999 14.4H14.9V6.40005C14.9 5.51639 15.6163 4.80005 16.5 4.80005Z" fill="#404040"/>
+                                  </svg>
+                            </span>
+                        </div>
+                      </button>
+                    <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1" x-bind:style="selected == 3 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                        <div class="p-6">
+                            <p>Lorem ipsum dolor sit amet consectetur. A neque curabitur fermentum phasellus ante adipiscing.</p>
+                        </div>
+                      </div>
+              </li>
+                <li class="relative border-b border-gray-200">
+                    <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 4 ? selected = 4 : selected = null">
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold">
+                                How long does it take to complete the project?
+                          </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 4.80005C17.3836 4.80005 18.1 5.51639 18.1 6.40005V14.4H26.1C26.9836 14.4 27.7 15.1164 27.7 16C27.7 16.8837 26.9836 17.6 26.1 17.6H18.1V25.6C18.1 26.4837 17.3836 27.2001 16.5 27.2001C15.6163 27.2001 14.9 26.4837 14.9 25.6V17.6H6.89999C6.01633 17.6 5.29999 16.8837 5.29999 16C5.29999 15.1164 6.01633 14.4 6.89999 14.4H14.9V6.40005C14.9 5.51639 15.6163 4.80005 16.5 4.80005Z" fill="#404040"/>
+                                  </svg>
+                            </span>
+                        </div>
+                      </button>
+                    <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container2" x-bind:style="selected == 4 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+                        <div class="p-6">
+                            <p>Lorem ipsum dolor sit amet consectetur. A neque curabitur fermentum phasellus ante adipiscing.</p>
+                        </div>
+                    </div>
+              </li>                    
+                </ul>
+              </div>            
+            </div>
+        </div>
+    </section>
+
+    <!-- contact us Section -->
+    <section class="bg-white lg:py-14 py-6" id="contact-section">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                <div id="contac" class="pl-12 pb-10 order-2 lg:order-1">
+                    <div class="flex flex-col py-6 items-start">
+                        <h4 class="text-tosca text-lg py-4"> 
+                            CONTACT US
+                        </h4>
+                        <h2 class="lg:text-[31px] text-xl font-bold text-start w-3/4 leading-tight">
+                            Lorem ipsum dolor sit amet consectetur. 
+                        </h2>
+                   </div>
+                   <div>
+                    <form class="w-3/4" action="send_email.php" method="post">
+                        <div class="border-b">
+                            <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <div class="mt-2">
+                                    <input type="text" name="Name" id="Name" class="block mr-3 w-full bg-gray-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="  Name">
+                                </div>  
+                            </div>
+                            <div>
+                                <div class="mt-2">
+                                    <input type="email" name="Email" id="Email" class="block mr-3 w-full bg-gray-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="  Email">
+                                </div>  
+                            </div>
+                            <div>
+                                <div class="mt-2">
+                                <textarea name="about" rows="6" class="w-full rounded-md border-0 py-1.5 bg-gray-200 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="  Massage..."></textarea>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-center justify-start gap-x-6">
+                            <button type="submit" class="rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
+                        </div>
+                    </form>
+                   </div>
+                </div>
+                <div class="px-6 py-6 order-1 lg:order-2">
+                    <iframe class="flex w-full lg:h-[500px] h-[400px]"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12080.73732861526!2d-74.0059418!3d40.7127847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMDA2JzEwLjAiTiA3NMKwMjUnMzcuNyJX!5e0!3m2!1sen!2sus!4v1648482801994!5m2!1sen!2sus"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="bg-[#353535]">
+        <div class="container mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row text-white justify-between py-10">
+                <div class="flex flex-col lg:flex-row gap-6 py-6 lg:py-0 lg:pl-14">
+                    <a href="https://busanid.dev" target="_blank">About Us</a>
+                    <a href="#service-section">Services</a>
+                    <a href="#feature-section">Features</a>
+                    <a href="#pricing-section">Pricing</a>
+                    <a href="#contact-section">Contact</a>
+                </div>
+                <div class="flex flex-row justify-between gap-10">
+                    <img src="../public/icon/fb.svg" alt="">
+                    <img src="../public/icon/ig.svg" alt="">
+                    <img src="../public/icon/twitter.svg" alt="">
+                    <img src="../public/icon/wa.svg" alt="">
+                </div>
+            </div>
+            <div class="text-center border-t-2 text-white pt-10 p-4 lg:p-6">
+                © Website Murah 2023.
+            </div>
+        </div>
+    </section>
 </body>
 </html>
