@@ -1224,6 +1224,15 @@ html{
     display: block;
   }
 
+  .sm\:hidden {
+    display: none;
+  }
+
+  .sm\:object-none {
+    -o-object-fit: none;
+       object-fit: none;
+  }
+
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -1231,6 +1240,13 @@ html{
 
   .sm\:leading-6 {
     line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:object-none {
+    -o-object-fit: none;
+       object-fit: none;
   }
 }
 
@@ -1309,6 +1325,11 @@ html{
 
   .lg\:gap-5 {
     gap: 1.25rem;
+  }
+
+  .lg\:object-none {
+    -o-object-fit: none;
+       object-fit: none;
   }
 
   .lg\:p-6 {
