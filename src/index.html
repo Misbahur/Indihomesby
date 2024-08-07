@@ -1,87 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Indihome Surabaya" />
+    <meta property="og:description" content="Provider Internet Cepat di Surabaya." />
+    <meta property="og:image" content="https://indihomesby.com/public/img/Logo.png" />
+    <meta property="og:url" content="https://indihomesby.com/" />
+    <meta property="og:type" content="website" />
     <title>Indihome Surabaya</title>
     <!-- Icon -->
     <link rel="icon" href="../public/img/navlogo.png">
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@400;1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@400;1000&display=swap"
+        rel="stylesheet">
     <!-- Tailwindcss -->
-    <link href="/dist/output.css" rel="stylesheet">
+    <link href="/dist/build.css" rel="stylesheet">
     <!-- Alpine Js -->
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <div x-data="{ showBar: false }">
-        <nav x-data="{ Navopen: false }" class="lg:px-12 fixed top-0 flex w-full z-50" :class="{ 'bg-white shadow transition duration-100' : showBar }"
-        @scroll.window="showBar = (window.pageYOffset > 20) ? true : false">
-            <div class="container px-8 py-3 rounded-full mx-auto" >
+        <nav x-data="{ Navopen: false }" class="lg:px-12 fixed top-0 flex w-full z-50"
+            :class="{ 'bg-white shadow transition duration-100' : showBar }"
+            @scroll.window="showBar = (window.pageYOffset > 20) ? true : false">
+            <div class="container px-8 py-3 rounded-full mx-auto">
                 <div class="flex items-center justify-between">
-                    <img src="../public/img/Logo.png" alt="Logo" style="width: 10rem;">
+                    <a href="index.html">
+                        <img src="../public/img/Logo.png" alt="Logo" style="width: 10rem;">
+                    </a>
                     <img @click="Navopen = ! Navopen" src="../public/icon/toggle.svg" alt="" class="lg:hidden">
                     <div class="hidden lg:block">
                         <ul class="flex gap-14">
                             <li class="font-bold text-abu text-md text-red-600"><a href="#hero-section">Home</a></li>
-                            <li class="font-bold text-abu text-md"><a href="https://indihome.co.id/about-indihome" target="_blank">About Us</a></li>
+                            <li class="font-bold text-abu text-md"><a href="https://indihome.co.id/about-indihome"
+                                    target="_blank">About Us</a></li>
                             <li class="font-bold text-abu text-md"><a href="#service-section">Services</a></li>
                             <li class="font-bold text-abu text-md"><a href="#feature-section">Features</a></li>
                             <li class="font-bold text-abu text-md"><a href="#pricing-section">Pricing</a></li>
-                            <li class="font-bold text-abu text-md"><a href="#contact-section">Contact</a></li>
+                            <li class="font-bold text-abu text-md"><a href="https://api.whatsapp.com/send/?phone=6281255539222&text=Hallo,%20saya%20tertarik%20untuk%20berlangganan%20IndiHome%20Surabaya.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%20tentang%20paket%20dan%20proses%20pemasangannya%3F%20Terima%20kasih.&type=phone_number&app_absent=0">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div x-show="Navopen" class="lg:hidden sm:block fixed bottom-0 right-0 left-0 bg-white p-4"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 scale-90"
-            x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="transition ease-in duration-300"
-            x-transition:leave-start="opacity-100 scale-100"
-            x-transition:leave-end="opacity-0 scale-90"
-            >
+                x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                 <ul class="flex justify-between">
                     <li>
-                        <a href="https://indihome.co.id/" target="_blank" class="flex justify-center flex-col items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-                              </svg>                            
+                        <a href="https://indihome.co.id/about-indihome" target="_blank"
+                            class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                            </svg>
                             <span class="text-base font-normal text-abu">About Us</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#hero-section" class="flex justify-center flex-col items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
-                              </svg>                           
+                        <a href="#service-section" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                            </svg>
                             <span class="text-base font-normal text-abu">Service</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#service-sertion" class="flex justify-center flex-col items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                              </svg>                            
+                        <a href="#feature-section" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+                            </svg>
                             <span class="text-base font-normal text-abu">Features</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#harga" class="flex justify-center flex-col items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-                              </svg>                            
+                        <a href="#pricing-section" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                            </svg>
                             <span class="text-base font-normal text-abu">Pricing</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#contac" class="flex justify-center flex-col items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                              </svg>                            
+                        <a href="https://api.whatsapp.com/send/?phone=6281255539222&text=Hallo,%20saya%20tertarik%20untuk%20berlangganan%20IndiHome%20Surabaya.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%20tentang%20paket%20dan%20proses%20pemasangannya%3F%20Terima%20kasih.&type=phone_number&app_absent=0" class="flex justify-center flex-col items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
                             <span class="text-base font-normal text-abu">Contact</span>
                         </a>
                     </li>
@@ -95,15 +114,18 @@
         <div class="w-full lg:h-screen lg:pt-0 pt-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 place-content-center items-center lg:h-screen">
                 <div class="lg:pt-12 lg:pl-24 order-2 px-2 lg:px-6 lg:order-1">
-                    <h1 class="lg:text-[48px] text-4xl font-extrabold leading-tight text-red-600">Selamat datang di IndiHome.</h1>
-                    <p class="lg:text-lg text-sm tracking-wide leading-relaxed opacity-80 w-3/4">Solusi Internet Cepat, Berkelas, dan Cerdas untuk Aktivitas Tanpa Batas.</p>
+                    <h1 class="lg:text-[48px] text-4xl font-extrabold leading-tight text-red-600">Selamat datang
+                        IndiHome Surabaya.</h1>
+                    <p class="lg:text-lg text-sm tracking-wide leading-relaxed opacity-80 w-3/4">Solusi Internet Cepat,
+                        Berkelas, dan Cerdas untuk Aktivitas Tanpa Batas di Surabaya.</p>
                     <div class="flex justify-start gap-4 py-4">
-                        <a href="#">
+                        <a
+                            href="https://api.whatsapp.com/send/?phone=6281255539222&text=Hallo,%20saya%20tertarik%20untuk%20berlangganan%20IndiHome%20Surabaya.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%20tentang%20paket%20dan%20proses%20pemasangannya%3F%20Terima%20kasih.&type=phone_number&app_absent=0">
                             <button class="py-2 px-2 bg-red-700 shadow-md rounded-md text-white">
                                 Order Now
                             </button>
                         </a>
-                        <a href="#">
+                        <a href="https://indihome.co.id/">
                             <button class="py-2 px-2 bg-white shadow-md rounded-md text-red-700">
                                 Explore More
                             </button>
@@ -112,7 +134,8 @@
                 </div>
                 <div class="order-1 lg:order-2">
                     <img class="mr-0" src="../public/img/main1.png" alt="">
-                    <img class="fixed top-0 right-0 h-screen -z-10 hidden lg:block" src="../public/img/rectangle1.png" alt="">
+                    <img class="fixed top-0 right-0 h-screen -z-10 hidden lg:block" src="../public/img/rectangle1.png"
+                        alt="">
                 </div>
             </div>
         </div>
@@ -121,46 +144,50 @@
     <!-- Featurs Section -->
     <section class="bg-slate-50 lg:py-20 py-6" id="feature-section">
         <div class="container mx-auto max-w-7xl px-6 lg:px-8">
-           <div class="flex flex-col py-6 items-center">
-                <h4 class="text-tosca text-lg py-4"> 
+            <div class="flex flex-col py-6 items-center">
+                <h4 class="text-tosca text-lg py-4">
                     FEATURES
                 </h4>
                 <h2 class="lg:text-[20px] text-xl font-extrabold lg:w-3/4 text-center leading-tight">
-                    Bebas akses internet stabil, telepon rumah jernih dan tayangan TV interaktif terpopuler dengan IndiHome. Miliki layanan internet terbaik di rumah sekarang juga.
+                    Bebas akses internet stabil, telepon rumah jernih dan tayangan TV interaktif terpopuler dengan
+                    IndiHome. Miliki layanan internet terbaik di rumah sekarang juga.
                 </h2>
-           </div>
-           <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center lg:pt-10">
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center lg:pt-10">
                 <div class="flex flex-col gap-2 lg:gap-4 order-2 lg:order-1">
-                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-10">
+                    <div
+                        class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-10">
                         <img class="content-start" src="../public/icon/wifi.svg" alt="">
                         <div class="flex flex-col">
                             <h2 class="text-lg font-bold">
                                 Internet Cepat
                             </h2>
                             <p class="text-sm opacity-90">
-                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                Tingkatkan produktivitas Anda dengan Internet Cepat, koneksi tanpa hambatan!
                             </p>
                         </div>
                     </div>
-                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-5">
+                    <div
+                        class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-5">
                         <img class="content-start" src="../public/icon/tv.svg" alt="">
                         <div class="flex flex-col">
                             <h2 class="text-lg font-bold">
                                 Bebas Nonton
                             </h2>
                             <p class="text-sm opacity-90">
-                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                Nikmati hiburan tanpa batas dengan Bebas Nonton, streaming lancar sepanjang hari!
                             </p>
                         </div>
                     </div>
-                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-10">
+                    <div
+                        class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:left-10">
                         <img class="content-start" src="../public/icon/telp.svg" alt="">
                         <div class="flex flex-col">
                             <h2 class="text-lg font-bold">
                                 Telpon Rumah
                             </h2>
                             <p class="text-sm opacity-90">
-                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                Hubungi orang terdekat dengan mudah dan jelas menggunakan layanan Telpon Rumah kami!
                             </p>
                         </div>
                     </div>
@@ -169,46 +196,52 @@
                     <img src="../public/img/sosmed.png" alt="">
                 </div>
                 <div class="flex flex-col gap-2 lg:gap-4 order-3 lg:order-3">
-                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-10">
+                    <div
+                        class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-10">
                         <img class="content-start" src="../public/icon/entertaimen.svg" alt="">
                         <div class="flex flex-col">
                             <h2 class="text-lg font-bold">
                                 Entertainment Terlengkap
                             </h2>
                             <p class="text-sm opacity-90">
-                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                Rasakan sensasi hiburan tak terbatas dengan Entertainment Terlengkap, semua ada di sini!
                             </p>
                         </div>
                     </div>
-                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-5">
+                    <div
+                        class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-5">
                         <img class="content-start" src="../public/icon/game.svg" alt="">
                         <div class="flex flex-col">
                             <h2 class="text-lg font-bold">
                                 Support Game
                             </h2>
                             <p class="text-sm opacity-90">
-                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                Main game tanpa lag dengan koneksi Support Game terbaik, nikmati pengalaman gaming
+                                maksimal!
                             </p>
                         </div>
                     </div>
-                    <div class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-10">
+                    <div
+                        class="flex flex-row py-2 px-4 gap-4 bg-white rounded-lg shadow-md lg:z-10 lg:relative lg:right-10">
                         <img class="content-start" src="../public/icon/bundling.svg" alt="">
                         <div class="flex flex-col">
                             <h2 class="text-lg font-bold">
-                                Bundling Telkomsel
+                                Beragam Pilihan Paket Menarik
                             </h2>
                             <p class="text-sm opacity-90">
-                                Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                Rasakan kemudahan dan kenyamanan dengan beragam pilihan paket menarik dari IndiHome.
+                                Pilih paket yang sesuai dengan kebutuhan Anda dan nikmati layanan terbaik dengan harga
+                                yang kompetitif!
                             </p>
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
     </section>
 
     <!-- WHY CHOOSE US? Section -->
-    <section class="bg-gradient-to-r from-yellow-700 to-red-600 lg:py-20 py-6" id="#">
+    <section class="bg-gradient-to-r from-yellow-700 to-red-600 lg:py-20 py-6" id="service-section">
         <div class="container mx-auto max-w-7xl px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
                 <div>
@@ -216,28 +249,34 @@
                 </div>
                 <div class="flex flex-col py-6">
                     <div class="text-white">
-                        <h4 class="text-tosca text-lg py-4"> 
-                           WHY CHOOSE US?
+                        <h4 class="text-tosca text-lg py-4">
+                            WHY CHOOSE US?
                         </h4>
-                        <h2 class="lg:text-[31px] text-xl font-bold text-start leading-tight">
-                           Lorem ipsum dolor sit amet consectetur. A cursus vitae aenean eget amet.
+                        <h2 class="lg:text-lg text-xl font-bold text-start leading-tight">
+                            Tingkatkan pengalaman digital ! Nikmati internet cepat dan
+                            stabil, layanan telpon rumah yang jelas, dan hiburan terlengkap. Dengan jangkauan terluas di
+                            Surabaya dan dukungan teknisi cepat & tanggap, IndiHome adalah pilihan
+                            tepat untuk kebutuhan koneksi Anda.
+                            <!-- Pilih IndiHome, nikmati kenyamanan tanpa batas! -->
                         </h2>
                     </div>
-                     <div class="grid grid-cols-1 lg:grid-cols-2 py-4 gap-2 lg:gap-5 order-2 lg:order-1">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 py-4 gap-2 lg:gap-5 order-2 lg:order-1">
                         <div class="flex flex-col py-4 px-4 gap-4 bg-slate-100 rounded-lg shadow-md">
                             <div class="">
-                                <img class="content-start h-20 w-20 py-2 px-2 bg-red-200 rounded-lg" src="../public/icon/inet.svg" alt="">
+                                <img class="content-start h-20 w-20 py-2 px-2 bg-red-200 rounded-lg"
+                                    src="../public/icon/inet.svg" alt="">
                             </div>
                             <div class="flex flex-col">
                                 <h2 class="text-lg font-bold">
                                     Internet Jangkauan Terluas
                                 </h2>
                                 <p class="text-sm opacity-90">
-                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                    Tetap terhubung di mana saja dengan Internet Jangkauan Terluas, stabil dan andal di
+                                    seluruh negeri!
                                 </p>
                             </div>
                         </div>
-                        <div class="flex flex-col py-4 px-4 gap-4 bg-slate-100 rounded-lg shadow-md">
+                        <!-- <div class="flex flex-col py-4 px-4 gap-4 bg-slate-100 rounded-lg shadow-md">
                             <div class="">
                                 <img class="content-start h-20 w-20 py-2 px-2 bg-red-200 rounded-lg" src="../public/icon/bebasbiaya.svg" alt="">
                             </div>
@@ -246,33 +285,37 @@
                                     Bebas Biaya Pemasangan
                                 </h2>
                                 <p class="text-sm opacity-90">
-                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                    Pasang layanan kami sekarang dan nikmati Bebas Biaya Pemasangan, mudah dan hemat!
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="flex flex-col py-4 px-4 gap-4 bg-slate-100 rounded-lg shadow-md">
                             <div class="">
-                                <img class="content-start h-20 w-20 py-2 px-2 bg-red-200 rounded-lg" src="../public/icon/cs.svg" alt="">
+                                <img class="content-start h-20 w-20 py-2 px-2 bg-red-200 rounded-lg"
+                                    src="../public/icon/cs.svg" alt="">
                             </div>
                             <div class="flex flex-col">
                                 <h2 class="text-lg font-bold">
                                     Call Center 24 Jam
                                 </h2>
                                 <p class="text-sm opacity-90">
-                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                    Siap membantu Anda kapan saja dengan Call Center 24 Jam, layanan pelanggan terbaik
+                                    sepanjang waktu!
                                 </p>
                             </div>
                         </div>
                         <div class="flex flex-col py-4 px-4 gap-4 bg-slate-100 rounded-lg shadow-md">
                             <div class="">
-                                <img class="content-start h-20 w-20 py-2 px-2 bg-red-200 rounded-lg" src="../public/icoN/teknisi.svg" alt="">
+                                <img class="content-start h-20 w-20 py-2 px-2 bg-red-200 rounded-lg"
+                                    src="../public/icoN/teknisi.svg" alt="">
                             </div>
                             <div class="flex flex-col">
                                 <h2 class="text-lg font-bold">
                                     Teknisi Cepat & Tanggap
                                 </h2>
                                 <p class="text-sm opacity-90">
-                                    Lorem ipsum dolor sit amet consectetur. Mattis neque malesuada auctor ut turpis et sed.
+                                    Dapatkan solusi instan dengan Teknisi Cepat & Tanggap, layanan andal untuk kebutuhan
+                                    Anda!
                                 </p>
                             </div>
                         </div>
@@ -281,195 +324,161 @@
             </div>
         </div>
     </section>
-    
+
     <!-- price Section -->
-    <section class="bg-slate-50 lg:py-14 py-6" id="pricing-section">
+    <section class="bg-slate-50 py-2 pt-4 lg:pt-14" id="pricing-section">
         <div class="container mx-auto max-w-7xl px-6 lg:px-8">
-           <div class="flex flex-col py-6 items-center">
-                <h4 class="text-tosca text-xl py-4"> 
+            <div class="flex flex-col py-6 items-center">
+                <h4 class="text-tosca text-xl py-4">
                     PRICING
                 </h4>
                 <h2 class="lg:text-31px] text-xl font-bold text-center leading-tight">
-                    Lorem ipsum dolor sit amet consectetur. A cursus vitae aenean eget amet ultrices egestas nunc.
+                    Nikmati berbagai pilihan paket menarik yang dirancang untuk memenuhi kebutuhan digital Anda. Mulai
+                    dari internet super cepat, layanan telepon rumah, hingga hiburan tanpa batas, kami memiliki
+                    semuanya. Pilih paket yang sesuai dengan kebutuhan Anda dan rasakan kemudahan berinternet dengan
+                    koneksi yang andal dan stabil.
                 </h2>
-           </div>
+            </div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center lg:pt-10">
-                <div class="flex flex-col border-2 rounded-3xl py-6 px-4 h-11/12 items-center">
+                <div class="flex flex-col bg-red-300 rounded-tr-3xl py-6 px-4 h-11/12 items-center">
+                    <div class="flex object-left">
+                        <img class="h-12 w-12 py-2 px-2" src="../public/icon/pricing.svg" alt="pricing">
+                        <span class="inline-flex items-end py-2 font-semibold text-2xl">EZnet</span>
+                    </div>
                     <div>
-                        <h2 class="text-center font-semibold text-2xl">Starter</h2>
-                        <h4 class="text-center font-normal text-base">Lorem ipsum dolor sit amet consectetur.</h4>
+                        <h4 class="text-center font-normal text-base">Bebas internetan dengan nyaman, mulai Rp150.000
+                            untuk seluruh keluarga.</h4>
                     </div>
                     <div class="py-4">
-                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span class="text-xl font-normal">Rp</span>500.000</h1>
+                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span
+                                class="text-xl font-normal">Rp</span>150.000</h1>
+                    </div>
+                    <div>
+                        <h2 class="text-start font-semibold text-lg">Layanan</h2>
+                        <ul class="flex flex-col space-y-2">
+                            <li class="flex flex-row">
+                                <img class="h-12 w-12 px-2" src="../public/icon/inet.svg" alt="pricing">
+                                <span class="inline-flex items-center">
+                                    Internet 10 Mbps
+                                </span>
+                            </li>
+                            <!-- <li class="flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                                    fill="none">
+                                    <path
+                                        d="M10 14.5L12 12.5M12 12.5L14 10.5M12 12.5L10 10.5M12 12.5L14 14.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z"
+                                        stroke="#F04438" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span class="text-red-600">
+                                    Lorem ipsum dolor sit amet
+                                </span>
+                            </li> -->
+                        </ul>
                     </div>
                     <div class="py-4">
-                        <a href="">
-                            <button class="py-2 px-8 bg-red-700 hover:bg-red-500 hover:text-gray-600 rounded-md text-white">Order now</button>
+                        <a href="https://api.whatsapp.com/send/?phone=6281255539222&text=Hallo,%20saya%20tertarik%20untuk%20berlangganan%20IndiHome%20Surabaya.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%20tentang%20paket%20dan%20proses%20pemasangannya%3F%20Terima%20kasih.&type=phone_number&app_absent=0">
+                            <button
+                                class="py-2 px-24 bg-red-700 hover:bg-red-500 hover:text-blue-300 rounded-md text-white">Order
+                                now</button>
                         </a>
                     </div>
+                </div>
+                <div class="flex flex-col border-2 border-violet-600 bg-gradient-to-r from-orange-400 to-red-700 rounded-tr-3xl py-6 h-12/12 px-4 items-center relative text-blue-200">
                     <div>
-                        <h2 class="text-start font-semibold text-lg">Features</h2>
-                        <ul class="flex flex-col space-y-2 py-4">
+                        <img class="absolute right-4 top-0" src="../public/img/Label.png" alt="">
+                    </div>
+                    <div class="flex place-content-center">
+                        <img class="h-12 w-12 py-2 px-2" src="../public/icon/pricing.svg" alt="pricing">
+                        <span class="inline-flex items-end py-2 font-semibold text-2xl">JITU 1P Internet</span>
+                    </div>
+                    <div>
+                        <h4 class="text-center font-normal text-base">Pilihan Favorit Pelanggan kami, Bebas internetan
+                            dengan nyaman.</h4>
+                    </div>
+                    <div class="py-4">
+                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span
+                                class="text-xl font-normal">Rp</span>280.000</h1>
+                    </div>
+                    <div>
+                        <h2 class="text-start font-semibold text-lg">Layanan</h2>
+                        <ul class="flex flex-col space-y-2">
                             <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M10 14.5L12 12.5M12 12.5L14 10.5M12 12.5L10 10.5M12 12.5L14 14.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#F04438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span class="text-red-600">
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
+                                <img class="h-12 w-12 px-2" src="../public/icon/inet.svg" alt="pricing">
+                                <span class="inline-flex items-center">
+                                    Internet 30 Mbps
+                                </span>
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="flex-col border-2 border-violet-600 rounded-3xl py-6 h-12/12 px-4 items-center relative">
-                    <img class="absolute right-3 top-0" src="../public/img/Label.png" alt="">
-                    <div>
-                        <h2 class="text-center font-semibold text-2xl">Premium</h2>
-                        <h4 class="text-center font-normal text-base">Lorem ipsum dolor sit amet consectetur.</h4>
-                    </div>
                     <div class="py-4">
-                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span class="text-xl font-normal">Rp</span>500.000</h1>
-                    </div>
-                    <div class="py-4">
-                        <a href="">
-                            <button class="py-2 px-8 bg-red-700 hover:bg-red-500 hover:text-gray-600 rounded-md text-white">Order now</button>
+                        <a href="https://api.whatsapp.com/send/?phone=6281255539222&text=Hallo,%20saya%20tertarik%20untuk%20berlangganan%20IndiHome%20Surabaya.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%20tentang%20paket%20dan%20proses%20pemasangannya%3F%20Terima%20kasih.&type=phone_number&app_absent=0">
+                            <button
+                                class="py-2 px-24 bg-red-700 hover:bg-red-500 hover:text-blue-300 rounded-md text-white">Order
+                                now</button>
                         </a>
                     </div>
+                </div>
+                <div class="flex flex-col bg-red-400 rounded-tr-3xl py-6 px-4 h-11/12 items-center relative">
                     <div>
-                        <h2 class="text-start font-semibold text-lg">Features</h2>
-                        <ul class="flex flex-col space-y-2 py-4">
+                        <img class="absolute right-5 top-0" src="../public/img/promo.png" alt="">
+                    </div>
+                    <div class="flex object-left">
+                        <img class="h-12 w-12 py-2 px-2" src="../public/icon/pricing.svg" alt="pricing">
+                        <span class="inline-flex items-end py-2 font-semibold text-2xl">JITU 1P Internet</span>
+                    </div>
+                    <div>
+                        <h4 class="text-center font-normal text-base">Bebas internetan dengan nyaman, dengan Bandwith
+                            Besar 50Mbps Harga Murah.</h4>
+                    </div>
+                    <div class="py-4">
+                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span
+                                class="text-xl font-normal">Rp</span>299.000</h1>
+                    </div>
+                    <div>
+                        <h2 class="text-start font-semibold text-lg">Layanan</h2>
+                        <ul class="flex flex-col space-y-2">
                             <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
+                                <img class="h-12 w-12 px-2" src="../public/icon/inet.svg" alt="pricing">
+                                <span class="inline-flex items-center">
+                                    Internet 50 Mbps
+                                </span>
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="flex flex-col border-2 rounded-3xl py-6 px-4 h-11/12 items-center">
-                    <div>
-                        <h2 class="text-center font-semibold text-2xl">Business</h2>
-                        <h4 class="text-center font-normal text-base">Lorem ipsum dolor sit amet consectetur.</h4>
-                    </div>
                     <div class="py-4">
-                        <h1 class="text-center font-extrabold text-4xl lg:text-5xl"><span class="text-xl font-normal">Rp</span>500.000</h1>
-                    </div>
-                    <div class="py-4">
-                        <a href="">
-                            <button class="py-2 px-8 bg-red-700 hover:bg-red-500 hover:text-gray-600 rounded-md text-white">Order now</button>
+                        <a href="https://api.whatsapp.com/send/?phone=6281255539222&text=Hallo,%20saya%20tertarik%20untuk%20berlangganan%20IndiHome%20Surabaya.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%20tentang%20paket%20dan%20proses%20pemasangannya%3F%20Terima%20kasih.&type=phone_number&app_absent=0">
+                            <button
+                                class="py-2 px-24 bg-red-700 hover:bg-red-500 hover:text-blue-300 rounded-md text-white">Order
+                                now</button>
                         </a>
                     </div>
-                    <div>
-                        <h2 class="text-start font-semibold text-lg">Features</h2>
-                        <ul class="flex flex-col space-y-2 py-4">
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                            <li class="flex flex-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 12.5L11 14.5L15 10.5M21 12.5C21 17.4706 16.9706 21.5 12 21.5C7.02944 21.5 3 17.4706 3 12.5C3 7.52944 7.02944 3.5 12 3.5C16.9706 3.5 21 7.52944 21 12.5Z" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                  <span>
-                                    Lorem ipsum dolor sit amet 
-                                  </span>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
+            </div>
+            <div class="flex flex-col py-2 pt-6 items-center">
+                <a href="paket.html">
+                    <button class="py-2 px-2 bg-white shadow-md rounded-md text-red-700">
+                        Pilih Paket Lain >>
+                    </button>
+                </a>
             </div>
         </div>
     </section>
 
-     <!-- FAQ Section -->
-     <section class="bg-slate-100 lg:py-14 py-6" id="#faq">
+    <!-- Pengumuman Section -->
+    <section class="bg-slate-50 lg:py-2 py-2" id="pricing-section">
+        <div class="container mx-auto max-w-7xl px-6 lg:px-8">
+            <div
+                class="relative isolate overflow-hidden bg-gray-900 px-6 py-8 text-center shadow-2xl sm:rounded-3xl sm:px-16">
+                <p class="text-base leading-8 text-gray-300">Tagihan Indihome Akan ditagihkan kepada pelanggan tiap
+                    bulan atas dasar pasca bayar dan akan diprorata di bulan pertama.</p>
+                <p class="mx-auto max-w-xl text-base italic leading-8 text-gray-300">Harga belum termasuk PPN 11%</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <!-- <section class="bg-slate-100 lg:py-14 py-6" id="#faq">
         <div class="container mx-auto max-w-7xl px-6 lg:px-8">
            <div class="flex flex-col py-6 items-center">
                 <h4 class="text-tosca text-xl py-4"> 
@@ -562,7 +571,7 @@
               </div>            
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- contact us Section -->
     <!-- <section class="bg-white lg:py-14 py-6" id="contact-section">
@@ -619,17 +628,25 @@
         <div class="container mx-auto max-w-7xl px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row text-white justify-between py-10">
                 <div class="flex flex-col lg:flex-row gap-6 py-6 lg:py-0 lg:pl-14">
-                    <a href="https://busanid.dev" target="_blank">About Us</a>
+                    <a href="https://indihome.co.id/about-indihome" target="_blank">About Us</a>
                     <a href="#service-section">Services</a>
                     <a href="#feature-section">Features</a>
                     <a href="#pricing-section">Pricing</a>
                     <a href="#contact-section">Contact</a>
                 </div>
                 <div class="flex flex-row justify-between gap-10">
-                    <img src="../public/icon/fb.svg" alt="">
-                    <img src="../public/icon/ig.svg" alt="">
-                    <img src="../public/icon/twitter.svg" alt="">
-                    <img src="../public/icon/wa.svg" alt="">
+                    <a href="https://www.facebook.com/IndiHomeCare?mibextid=LQQJ4d">
+                        <img src="../public/icon/fb.svg" alt="Facebook IndiHome">
+                    </a>
+                    <a href="https://www.instagram.com/indihomecare?igsh=MWh6cmx5Mjd2Z2diOA==">
+                        <img src="../public/icon/ig.svg" alt="Instagram IndiHome">
+                    </a>
+                    <a href="https://x.com/indihomecare?s=21">
+                        <img src="../public/icon/twitter.svg" alt="X IndiHome">
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=6281255539222&text=Hallo,%20saya%20tertarik%20untuk%20berlangganan%20IndiHome%20Surabaya.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%20tentang%20paket%20dan%20proses%20pemasangannya%3F%20Terima%20kasih.&type=phone_number&app_absent=0">
+                        <img src="../public/icon/wa.svg" alt="whatsapp Care IndiHome">
+                    </a>
                 </div>
             </div>
             <div class="text-center border-t-2 text-white pt-10 p-4 lg:p-6">
@@ -638,4 +655,5 @@
         </div>
     </section>
 </body>
+
 </html>
